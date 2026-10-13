@@ -82,6 +82,19 @@ claims need a longer matched baseline, frozen evaluation and multiple seeds.
 Every run saves an ``experiment-summary.json`` alongside its checkpoints,
 including configuration, steps, runtime, peak GPU memory and metrics.
 
+On Apple silicon, select ``--accelerator mps``. With the tested PyTorch 2.9.1
+build, SVD requires ``PYTORCH_ENABLE_MPS_FALLBACK=1`` so that unsupported
+spectral operations run on the CPU. This is a mixed MPS/CPU execution path;
+it is not a native MPS SVD implementation.
+
+Pass ``--save-backbones`` to export ``initial-backbone.pt`` before training
+and ``final-backbone.pt`` after training, including BatchNorm buffers. Use a
+dedicated, fresh ``--cache-dir`` for each experiment. Snapshot export rejects
+existing files to preserve the comparison; when resuming an interrupted run,
+retain its original initial snapshot and do not reuse a completed run's cache.
+A frozen probe fitted separately on each snapshot with the same held-out split
+can distinguish representation improvement from online-probe optimization.
+
 Pass ``--resume PATH_TO_CHECKPOINT --epochs TOTAL_EPOCHS`` with the same
 model and experiment arguments to resume. ``--precision bf16-mixed`` keeps
 the encoder in mixed precision while the loss's spectral operations use FP32.

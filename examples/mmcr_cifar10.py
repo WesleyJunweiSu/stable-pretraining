@@ -78,11 +78,18 @@ def main() -> None:
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--workers", type=int, default=0)
     parser.add_argument("--seed", type=int, default=7)
-    parser.add_argument("--accelerator", choices=("cpu", "gpu", "auto"), default="auto")
+    parser.add_argument(
+        "--accelerator", choices=("cpu", "gpu", "mps", "auto"), default="auto"
+    )
     parser.add_argument(
         "--precision", choices=("32-true", "bf16-mixed"), default="32-true"
     )
     parser.add_argument("--resume", type=Path)
+    parser.add_argument(
+        "--save-backbones",
+        action="store_true",
+        help="Save encoder weights before and after training for fixed-protocol evaluation.",
+    )
     args = parser.parse_args()
     if args.batch_size < 2 or args.epochs < 1 or args.views < 2:
         parser.error("batch-size >= 2, epochs >= 1, views >= 2 are required")
@@ -90,9 +97,22 @@ def main() -> None:
         parser.error("sample limits and workers must be nonnegative")
     if args.method == "simclr" and args.views != 2:
         parser.error("SimCLR needs exactly two views")
+    args.cache_dir = args.cache_dir.resolve()
+    if args.save_backbones:
+        initial_backbone = args.cache_dir / "initial-backbone.pt"
+        final_backbone = args.cache_dir / "final-backbone.pt"
+        if final_backbone.exists() or (not args.resume and initial_backbone.exists()):
+            parser.error(
+                "--save-backbones would overwrite existing snapshots; use a dedicated "
+                "cache directory for each fresh run and preserve its original baseline"
+            )
+        if args.resume and not initial_backbone.is_file():
+            parser.error(
+                "--resume with --save-backbones requires the original "
+                "initial-backbone.pt in --cache-dir; preserve the original baseline"
+            )
     torch.set_num_threads(4)
     pl.seed_everything(args.seed, workers=True)
-    args.cache_dir = args.cache_dir.resolve()
     spt.set(
         cache_dir=str(args.cache_dir),
         requeue_checkpoint=False,
@@ -130,6 +150,12 @@ def main() -> None:
     model.save_hyperparameters(
         {**vars(args), "train_size": len(train), "val_size": len(val)}
     )
+    if args.save_backbones:
+        args.cache_dir.mkdir(parents=True, exist_ok=True)
+        if not args.resume:
+            torch.save(
+                model.backbone.state_dict(), args.cache_dir / "initial-backbone.pt"
+            )
     probe = spt.OnlineProbe(
         model,
         name="probe",
@@ -177,6 +203,16 @@ def main() -> None:
     )()
     if trainer.strategy.root_device.type == "cuda":
         torch.cuda.synchronize()
+    elif trainer.strategy.root_device.type == "mps":
+        torch.mps.synchronize()
+    if args.save_backbones:
+        torch.save(
+            {
+                key: value.detach().cpu()
+                for key, value in model.backbone.state_dict().items()
+            },
+            args.cache_dir / "final-backbone.pt",
+        )
     metrics = {
         key: float(value)
         for key, value in trainer.callback_metrics.items()
