@@ -1,0 +1,171 @@
+name: MMCR validation (Linux CPU)
+
+# Evidence for PR #464 review: real two-process Gloo DDP on Linux, and a
+# same-protocol CIFAR-10 training run for MMCR and a SimCLR reference.
+on:
+  workflow_dispatch:
+  push:
+    branches: ["mmcr-validation"]
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash  # -eo pipefail, so piped test output cannot mask failures
+
+env:
+  EVIDENCE: research/mmcr-validation-20261012
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  ddp:
+    name: Two-process Gloo DDP test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: |
+          python -m pip install torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[dev]"
+      - name: Record environment
+        run: |
+          mkdir -p out/ddp
+          python - <<'PY' > out/ddp/environment.json
+          import json, os, platform, subprocess, torch
+          print(json.dumps({
+              "commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+              "run_url": f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+              "platform": platform.platform(), "machine": platform.machine(),
+              "python": platform.python_version(), "torch": torch.__version__,
+              "gloo_available": torch.distributed.is_gloo_available(),
+              "cpu_count": os.cpu_count(),
+          }, indent=2))
+          PY
+          sha256sum stable_pretraining/losses/mmcr.py stable_pretraining/tests/distributed/test_mmcr.py stable_pretraining/utils/distributed.py | tee out/ddp/source-sha256.txt
+          pip freeze > out/ddp/pip-freeze.txt
+          cat out/ddp/environment.json
+      - name: Two-process DDP loss and gradient test
+        env:
+          OMP_NUM_THREADS: "1"
+        run: |
+          python -m pytest stable_pretraining/tests/distributed/test_mmcr.py \
+            -v -s -rs -p no:cacheprovider --junitxml=out/ddp/ddp-results.xml 2>&1 | tee out/ddp/pytest.log
+      - name: Require PASSED (not SKIPPED)
+        run: python $EVIDENCE/linux-ci/check_junit.py out/ddp/ddp-results.xml | tee out/ddp/junit-summary.json
+      - name: Test sensitivity (injected distributed bugs must fail)
+        env:
+          OMP_NUM_THREADS: "1"
+        run: python $EVIDENCE/linux-ci/ddp_mutation_check.py 2>&1 | grep -v "^\[Gloo\]" | tee out/ddp/mutation-check.txt
+      - name: MMCR unit tests
+        run: |
+          python -m pytest stable_pretraining/tests/unit/test_mmcr.py stable_pretraining/tests/unit/test_mmcr_training.py \
+            -q -rs -p no:cacheprovider --junitxml=out/ddp/mmcr-unit.xml 2>&1 | tail -n 20 | tee out/ddp/mmcr-unit.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ddp
+          path: out/ddp
+
+  train:
+    name: CIFAR-10 20-epoch run (${{ matrix.method }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        method: [mmcr, simclr]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: |
+          python -m pip install torch==2.9.1 torchvision==0.24.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[dev]" scikit-learn matplotlib
+      - uses: actions/cache@v4
+        with:
+          path: data
+          key: cifar10-python-v1
+      - name: Download CIFAR-10
+        run: python -c "from torchvision.datasets import CIFAR10; CIFAR10('data', train=True, download=True)"
+      - name: Train (same protocol as the Mac run, CPU)
+        run: |
+          mkdir -p out/${{ matrix.method }}
+          nproc | tee out/${{ matrix.method }}/nproc.txt
+          python -u examples/mmcr_cifar10.py --method ${{ matrix.method }} \
+            --data-dir data --cache-dir runs/${{ matrix.method }} \
+            --train-samples 10000 --val-samples 5000 --epochs 20 --batch-size 64 \
+            --views 2 --seed 7 --lmbda 0 --lr 0.001 --workers 0 \
+            --accelerator cpu --precision 32-true --save-backbones \
+            2>&1 | tee out/${{ matrix.method }}/train.log | grep --line-buffered -a "done in" \
+            || (tail -n 80 out/${{ matrix.method }}/train.log; exit 1)
+          tail -n 5 out/${{ matrix.method }}/train.log
+      - name: Per-epoch summary
+        run: |
+          python $EVIDENCE/summarize_training.py --run-dir runs/${{ matrix.method }} --output-dir out/${{ matrix.method }}
+          cp "$(find runs/${{ matrix.method }} -name metrics.csv)" out/${{ matrix.method }}/raw-metrics.csv
+          cp "$(find runs/${{ matrix.method }} -name experiment-summary.json)" out/${{ matrix.method }}/experiment-summary.json
+      - name: Frozen ridge probe (initial vs final encoder)
+        run: |
+          python -u $EVIDENCE/frozen_probe.py --data-dir data \
+            --snapshot initial=runs/${{ matrix.method }}/initial-backbone.pt \
+            --snapshot final=runs/${{ matrix.method }}/final-backbone.pt \
+            --device cpu --cache-dir probe-cache --output out/${{ matrix.method }}/frozen-probe.json
+          python $EVIDENCE/linux-ci/feature_spectrum.py out/${{ matrix.method }}/frozen-probe.json out/${{ matrix.method }}/feature-spectrum.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: train-${{ matrix.method }}
+          path: out/${{ matrix.method }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: backbones-${{ matrix.method }}
+          path: runs/${{ matrix.method }}/*-backbone.pt
+          retention-days: 30
+
+  collect:
+    name: Compare and record results
+    needs: [ddp, train]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install matplotlib
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Assemble results
+        run: |
+          dest=$EVIDENCE/linux-ci/results
+          mkdir -p $dest
+          for name in ddp train-mmcr train-simclr; do
+            if [ -d artifacts/$name ]; then cp -r artifacts/$name $dest/${name#train-}; fi
+          done
+          python $EVIDENCE/linux-ci/compare.py $dest || true
+          cat > $dest/RUN.json <<EOF
+          {"run_url": "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID",
+           "commit": "$GITHUB_SHA",
+           "ddp": "${{ needs.ddp.result }}",
+           "train": "${{ needs.train.result }}"}
+          EOF
+          cat $dest/RUN.json
+          if [ -f $dest/comparison.md ]; then cat $dest/comparison.md >> $GITHUB_STEP_SUMMARY; fi
+      - name: Commit results to mmcr-validation-results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git checkout -b mmcr-validation-results
+          git add -f $EVIDENCE/linux-ci/results
+          git commit -m "Linux CI validation results for $GITHUB_SHA (run $GITHUB_RUN_ID)"
+          git push -f origin mmcr-validation-results

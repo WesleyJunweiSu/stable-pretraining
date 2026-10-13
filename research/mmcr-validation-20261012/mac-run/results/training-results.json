@@ -1,0 +1,15 @@
+{
+  "experiment_summary": "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/long-run-20e-workers0/runs/20261012/025927/e8954c7d3ae7/experiment-summary.json",
+  "raw_metrics": "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/long-run-20e-workers0/runs/20261012/025927/e8954c7d3ae7/metrics.csv",
+  "completed_epochs": 20,
+  "completed_steps": 3120,
+  "first_epoch_online_top1": 0.2791999876499176,
+  "final_epoch_online_top1": 0.5896000266075134,
+  "online_gain_percentage_points": 31.040003895759583,
+  "mean_first_five_online_top1": 0.3852399945259094,
+  "mean_last_five_online_top1": 0.5932400107383728,
+  "seconds": 1562.8576140410005,
+  "evaluation": "online probe on held-out training split; not frozen linear evaluation",
+  "fake_data": false,
+  "selection": "Report the final planned epoch and all epoch measurements, not the best validation checkpoint."
+}

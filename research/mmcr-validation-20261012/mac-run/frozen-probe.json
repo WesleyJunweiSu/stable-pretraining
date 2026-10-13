@@ -1,0 +1,175 @@
+{
+  "protocol": {
+    "name": "frozen ridge probe; not the paper's full linear evaluation",
+    "backbone": "spt.backbone.from_torchvision(resnet18, low_resolution=True, weights=None)",
+    "dataset": "CIFAR10 train=True; official test set unused",
+    "seed": 7,
+    "train_samples": 10000,
+    "val_samples": 5000,
+    "train_indices_sha256_le_int64": "b9e99fa90ee4e9308168cb097f277b28766db1bdecb6997db32b664fd04165ce",
+    "val_indices_sha256_le_int64": "1271d0648b50529110e8f35d2230e8161396156f10618ea7af8f7231401bc6b8",
+    "transform": {
+      "to_tensor": true,
+      "mean": [
+        0.4914,
+        0.4822,
+        0.4465
+      ],
+      "std": [
+        0.247,
+        0.2435,
+        0.2616
+      ]
+    },
+    "scaler": "StandardScaler fit on training features only",
+    "classifier": {
+      "name": "RidgeClassifier",
+      "alpha": 1.0,
+      "solver": "cholesky"
+    },
+    "hyperparameter_search": false,
+    "device": "mps",
+    "batch_size": 128
+  },
+  "snapshots": {
+    "initial": {
+      "top1_percent": 37.66,
+      "correct": 1883,
+      "evaluated": 5000,
+      "train_features": {
+        "shape": [
+          10000,
+          512
+        ],
+        "all_finite": true,
+        "feature_std_min": 0.004171430066308916,
+        "feature_std_median": 0.3595074524200531,
+        "feature_std_max": 2.1387178286696575,
+        "feature_std_below_1e-8_count": 0,
+        "mean_feature_l2_norm": 43.18833923339844
+      },
+      "val_features": {
+        "shape": [
+          5000,
+          512
+        ],
+        "all_finite": true,
+        "feature_std_min": 0.004379259535467478,
+        "feature_std_median": 0.36181632394960395,
+        "feature_std_max": 2.1494455277059044,
+        "feature_std_below_1e-8_count": 0,
+        "mean_feature_l2_norm": 43.172794342041016
+      },
+      "scaler_fit_samples": 10000,
+      "scaler_mean_sha256": "cf0891b35c80190c936cef69ed6a69808959316df6f6c02f482562e4b9b3841f",
+      "snapshot_path": "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/long-run-20e-workers0/initial-backbone.pt",
+      "snapshot_sha256": "fabe7c296bb63e2b37324020339f1f90e28c0f545c91e6e35ee7ea4e17af89f4",
+      "environment": {
+        "python": "3.12.12 (main, Nov 19 2025, 22:30:44) [Clang 21.1.4 ]",
+        "platform": "macOS-26.0.1-arm64-arm-64bit",
+        "packages": {
+          "torch": "2.9.1",
+          "torchvision": "0.24.1",
+          "numpy": "2.5.4",
+          "scikit-learn": "1.9.1",
+          "stable-pretraining": "0.1.dev3+g2d4a96433"
+        },
+        "git_sha": "2d4a9643350d42febb5fb1c6fb4187d65175455f",
+        "git_status": null,
+        "git_errors": {
+          "status": "Timed out after 10 seconds; provenance unavailable."
+        },
+        "script_sha256": "ecfca61dcde7bccceaa1625b7ca07f89fa019aaf0765df6eabcc5c1d6954a308",
+        "command_argv": [
+          "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/frozen_probe.py",
+          "--data-dir",
+          "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/data",
+          "--snapshot",
+          "initial=/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/long-run-20e-workers0/initial-backbone.pt",
+          "--snapshot",
+          "final=/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/long-run-20e-workers0/final-backbone.pt",
+          "--device",
+          "mps",
+          "--cache-dir",
+          "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/probe-cache",
+          "--output",
+          "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/frozen-probe.json"
+        ],
+        "backbone_factory_source_sha256": "dd336acaa8f82877225559072e178f623c10a97ecc5a2ec3bdc38ea9cd1cab47"
+      },
+      "seconds": 8.271597541999654,
+      "feature_cache_hit": false,
+      "feature_cache_path": "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/probe-cache/a87d405b3249dcf677f9dd5feeb842d9aa72c16b248d19515bea19b0eea2498d.npz"
+    },
+    "final": {
+      "top1_percent": 63.5,
+      "correct": 3175,
+      "evaluated": 5000,
+      "train_features": {
+        "shape": [
+          10000,
+          512
+        ],
+        "all_finite": true,
+        "feature_std_min": 0.19900766470762765,
+        "feature_std_median": 0.584083001478946,
+        "feature_std_max": 1.1773636705502037,
+        "feature_std_below_1e-8_count": 0,
+        "mean_feature_l2_norm": 25.0272159576416
+      },
+      "val_features": {
+        "shape": [
+          5000,
+          512
+        ],
+        "all_finite": true,
+        "feature_std_min": 0.19830826141105268,
+        "feature_std_median": 0.571342357206243,
+        "feature_std_max": 1.1844390765607138,
+        "feature_std_below_1e-8_count": 0,
+        "mean_feature_l2_norm": 24.826425552368164
+      },
+      "scaler_fit_samples": 10000,
+      "scaler_mean_sha256": "ea7296f69c07a62d0c169382c7938ca390206aab187c4665e8b6529413ab3ff4",
+      "snapshot_path": "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/long-run-20e-workers0/final-backbone.pt",
+      "snapshot_sha256": "4cc8ab2a82f77228c31733ef9b1933f2e20f1bd34f8ec0acfd45e822b60b470c",
+      "environment": {
+        "python": "3.12.12 (main, Nov 19 2025, 22:30:44) [Clang 21.1.4 ]",
+        "platform": "macOS-26.0.1-arm64-arm-64bit",
+        "packages": {
+          "torch": "2.9.1",
+          "torchvision": "0.24.1",
+          "numpy": "2.5.4",
+          "scikit-learn": "1.9.1",
+          "stable-pretraining": "0.1.dev3+g2d4a96433"
+        },
+        "git_sha": "2d4a9643350d42febb5fb1c6fb4187d65175455f",
+        "git_status": null,
+        "git_errors": {
+          "status": "Timed out after 10 seconds; provenance unavailable."
+        },
+        "script_sha256": "ecfca61dcde7bccceaa1625b7ca07f89fa019aaf0765df6eabcc5c1d6954a308",
+        "command_argv": [
+          "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/frozen_probe.py",
+          "--data-dir",
+          "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/data",
+          "--snapshot",
+          "initial=/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/long-run-20e-workers0/initial-backbone.pt",
+          "--snapshot",
+          "final=/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/long-run-20e-workers0/final-backbone.pt",
+          "--device",
+          "mps",
+          "--cache-dir",
+          "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/probe-cache",
+          "--output",
+          "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/frozen-probe.json"
+        ],
+        "backbone_factory_source_sha256": "dd336acaa8f82877225559072e178f623c10a97ecc5a2ec3bdc38ea9cd1cab47"
+      },
+      "seconds": 7.6794601250003325,
+      "feature_cache_hit": false,
+      "feature_cache_path": "/Users/junweisu/Documents/New project/stable-pretraining-mmcr/research/mmcr-validation-20261012/probe-cache/92f11aabf42038b0ec8626d9a401cbfdd23faa41b026d278b458a11018c2ce59.npz"
+    }
+  },
+  "final_minus_initial_top1_percentage_points": 25.840000000000003
+}
