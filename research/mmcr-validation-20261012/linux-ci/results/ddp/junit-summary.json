@@ -1,0 +1,9 @@
+{
+  "tests": 1,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "passed": [
+    "stable_pretraining.tests.distributed.test_mmcr::test_global_loss_and_ddp_parameter_gradients"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "commit": "885465edf99949d0dcdfa4002b48de70166d4204",
+  "run_url": "https://github.com/WesleyJunweiSu/stable-pretraining/actions/runs/38497426524",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "python": "3.11.17",
+  "torch": "2.9.1+cpu",
+  "gloo_available": true,
+  "cpu_count": 4
+}

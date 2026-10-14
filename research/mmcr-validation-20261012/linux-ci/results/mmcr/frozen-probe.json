@@ -1,0 +1,179 @@
+{
+  "protocol": {
+    "name": "frozen ridge probe; not the paper's full linear evaluation",
+    "backbone": "spt.backbone.from_torchvision(resnet18, low_resolution=True, weights=None)",
+    "dataset": "CIFAR10 train=True; official test set unused",
+    "seed": 7,
+    "train_samples": 10000,
+    "val_samples": 5000,
+    "train_indices_sha256_le_int64": "b9e99fa90ee4e9308168cb097f277b28766db1bdecb6997db32b664fd04165ce",
+    "val_indices_sha256_le_int64": "1271d0648b50529110e8f35d2230e8161396156f10618ea7af8f7231401bc6b8",
+    "transform": {
+      "to_tensor": true,
+      "mean": [
+        0.4914,
+        0.4822,
+        0.4465
+      ],
+      "std": [
+        0.247,
+        0.2435,
+        0.2616
+      ]
+    },
+    "scaler": "StandardScaler fit on training features only",
+    "classifier": {
+      "name": "RidgeClassifier",
+      "alpha": 1.0,
+      "solver": "cholesky"
+    },
+    "hyperparameter_search": false,
+    "device": "cpu",
+    "batch_size": 128
+  },
+  "snapshots": {
+    "initial": {
+      "top1_percent": 37.64,
+      "correct": 1882,
+      "evaluated": 5000,
+      "train_features": {
+        "shape": [
+          10000,
+          512
+        ],
+        "all_finite": true,
+        "feature_std_min": 0.004171432706277598,
+        "feature_std_median": 0.359508660627043,
+        "feature_std_max": 2.13872489488032,
+        "feature_std_below_1e-8_count": 0,
+        "mean_feature_l2_norm": 43.1884880065918
+      },
+      "val_features": {
+        "shape": [
+          5000,
+          512
+        ],
+        "all_finite": true,
+        "feature_std_min": 0.0043792607379150965,
+        "feature_std_median": 0.36181743420046275,
+        "feature_std_max": 2.149452628606979,
+        "feature_std_below_1e-8_count": 0,
+        "mean_feature_l2_norm": 43.17293930053711
+      },
+      "scaler_fit_samples": 10000,
+      "scaler_mean_sha256": "f8446ec2f900c143f1aa3e80525339d586e9375c6da17d5c30fa73d6506fec7b",
+      "snapshot_path": "/home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/initial-backbone.pt",
+      "snapshot_sha256": "8595e9fb882389dfde7368733c4fa825f88bb9c6375ae352410744136782b08e",
+      "environment": {
+        "python": "3.11.17 (main, Oct  1 2026, 14:32:31) [GCC 13.3.0]",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "packages": {
+          "torch": "2.9.1+cpu",
+          "torchvision": "0.24.1+cpu",
+          "numpy": "2.4.6",
+          "scikit-learn": "1.9.1",
+          "stable-pretraining": "0.1.dev1+g885465edf"
+        },
+        "git_sha": "885465edf99949d0dcdfa4002b48de70166d4204",
+        "git_status": [
+          "?? data/",
+          "?? out/",
+          "?? runs/"
+        ],
+        "git_errors": {},
+        "script_sha256": "ecfca61dcde7bccceaa1625b7ca07f89fa019aaf0765df6eabcc5c1d6954a308",
+        "command_argv": [
+          "research/mmcr-validation-20261012/frozen_probe.py",
+          "--data-dir",
+          "data",
+          "--snapshot",
+          "initial=runs/mmcr/initial-backbone.pt",
+          "--snapshot",
+          "final=runs/mmcr/final-backbone.pt",
+          "--device",
+          "cpu",
+          "--cache-dir",
+          "probe-cache",
+          "--output",
+          "out/mmcr/frozen-probe.json"
+        ],
+        "backbone_factory_source_sha256": "dd336acaa8f82877225559072e178f623c10a97ecc5a2ec3bdc38ea9cd1cab47"
+      },
+      "seconds": 103.97723900500023,
+      "feature_cache_hit": false,
+      "feature_cache_path": "/home/runner/work/stable-pretraining/stable-pretraining/probe-cache/74cc844a8eb96512bd1e2518ffd1ea12427c0206287ba375ad98f1559fa1d79a.npz"
+    },
+    "final": {
+      "top1_percent": 64.1,
+      "correct": 3205,
+      "evaluated": 5000,
+      "train_features": {
+        "shape": [
+          10000,
+          512
+        ],
+        "all_finite": true,
+        "feature_std_min": 0.2129398392956743,
+        "feature_std_median": 0.590880373423737,
+        "feature_std_max": 1.466852985800116,
+        "feature_std_below_1e-8_count": 0,
+        "mean_feature_l2_norm": 25.246807098388672
+      },
+      "val_features": {
+        "shape": [
+          5000,
+          512
+        ],
+        "all_finite": true,
+        "feature_std_min": 0.2134830917771411,
+        "feature_std_median": 0.5811483909661312,
+        "feature_std_max": 1.3989571874876687,
+        "feature_std_below_1e-8_count": 0,
+        "mean_feature_l2_norm": 25.028812408447266
+      },
+      "scaler_fit_samples": 10000,
+      "scaler_mean_sha256": "2556c7d8eb30ac1824d8a9ead73f101aa63da0ebf6f80f3b6cd87b397c2213c0",
+      "snapshot_path": "/home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/final-backbone.pt",
+      "snapshot_sha256": "f1af45b62c9a44eddf94bb62a1a46127e00b0aa2a290193e87569ba3e18e5340",
+      "environment": {
+        "python": "3.11.17 (main, Oct  1 2026, 14:32:31) [GCC 13.3.0]",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "packages": {
+          "torch": "2.9.1+cpu",
+          "torchvision": "0.24.1+cpu",
+          "numpy": "2.4.6",
+          "scikit-learn": "1.9.1",
+          "stable-pretraining": "0.1.dev1+g885465edf"
+        },
+        "git_sha": "885465edf99949d0dcdfa4002b48de70166d4204",
+        "git_status": [
+          "?? data/",
+          "?? out/",
+          "?? runs/"
+        ],
+        "git_errors": {},
+        "script_sha256": "ecfca61dcde7bccceaa1625b7ca07f89fa019aaf0765df6eabcc5c1d6954a308",
+        "command_argv": [
+          "research/mmcr-validation-20261012/frozen_probe.py",
+          "--data-dir",
+          "data",
+          "--snapshot",
+          "initial=runs/mmcr/initial-backbone.pt",
+          "--snapshot",
+          "final=runs/mmcr/final-backbone.pt",
+          "--device",
+          "cpu",
+          "--cache-dir",
+          "probe-cache",
+          "--output",
+          "out/mmcr/frozen-probe.json"
+        ],
+        "backbone_factory_source_sha256": "dd336acaa8f82877225559072e178f623c10a97ecc5a2ec3bdc38ea9cd1cab47"
+      },
+      "seconds": 105.98436233099892,
+      "feature_cache_hit": false,
+      "feature_cache_path": "/home/runner/work/stable-pretraining/stable-pretraining/probe-cache/3b49e823450163492d4b9f111a0d055dc555f631eb33fb66f1e3d0ec49569b29.npz"
+    }
+  },
+  "final_minus_initial_top1_percentage_points": 26.459999999999994
+}

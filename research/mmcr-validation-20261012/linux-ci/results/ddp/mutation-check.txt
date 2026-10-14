@@ -1,0 +1,4 @@
+real               -> PASS   [expected PASS: OK]
+no_gather          -> FAIL(lmbda=0.0): Scalars are not close!   [bug must be detected: OK]
+detached_gather    -> FAIL(lmbda=0.0): Tensor-likes are not close!   [bug must be detected: OK]
+worldsize_scaled   -> FAIL(lmbda=0.0): Scalars are not close!   [bug must be detected: OK]

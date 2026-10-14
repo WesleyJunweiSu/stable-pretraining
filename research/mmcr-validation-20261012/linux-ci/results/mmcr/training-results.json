@@ -1,0 +1,15 @@
+{
+  "experiment_summary": "runs/mmcr/runs/20261014/024155/884b5d645f44/experiment-summary.json",
+  "raw_metrics": "runs/mmcr/runs/20261014/024155/884b5d645f44/metrics.csv",
+  "completed_epochs": 20,
+  "completed_steps": 3120,
+  "first_epoch_online_top1": 0.30059999227523804,
+  "final_epoch_online_top1": 0.592199981212616,
+  "online_gain_percentage_points": 29.159998893737793,
+  "mean_first_five_online_top1": 0.3806000053882599,
+  "mean_last_five_online_top1": 0.5911999821662903,
+  "seconds": 9635.819692419002,
+  "evaluation": "online probe on held-out training split; not frozen linear evaluation",
+  "fake_data": false,
+  "selection": "Report the final planned epoch and all epoch measurements, not the best validation checkpoint."
+}

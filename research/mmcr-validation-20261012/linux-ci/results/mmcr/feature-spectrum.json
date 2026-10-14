@@ -1,0 +1,16 @@
+{
+  "initial": {
+    "dimensions": 512,
+    "effective_rank": 209.95627112807438,
+    "components_for_90pct_variance": 3,
+    "components_for_99pct_variance": 176,
+    "top_component_variance_fraction": 0.8506950177761012
+  },
+  "final": {
+    "dimensions": 512,
+    "effective_rank": 237.3591622553432,
+    "components_for_90pct_variance": 43,
+    "components_for_99pct_variance": 263,
+    "top_component_variance_fraction": 0.10456278930463657
+  }
+}

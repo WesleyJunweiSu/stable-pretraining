@@ -1,0 +1,20 @@
+stable_pretraining/tests/unit/test_mmcr_training.py::test_manager_probe_and_resume[method]
+stable_pretraining/tests/unit/test_mmcr_training.py::test_manager_probe_and_resume[forward]
+  /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+
+stable_pretraining/tests/unit/test_mmcr_training.py::test_manager_probe_and_resume[method]
+  /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:378: You have overridden `on_after_batch_transfer` in `LightningModule` but have passed in a `LightningDataModule`. It will use the implementation from `LightningModule` instance.
+
+stable_pretraining/tests/unit/test_mmcr_training.py::test_manager_probe_and_resume[method]
+  /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 4. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+
+stable_pretraining/tests/unit/test_mmcr_training.py::test_manager_probe_and_resume[method]
+  /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/lightning/pytorch/callbacks/model_checkpoint.py:566: The dirpath has changed from '/tmp/pytest-of-runner/pytest-1/test_manager_probe_and_resume_0/runs/20261014/014824/4f9b7e1281af/checkpoints' to '/tmp/pytest-of-runner/pytest-1/test_manager_probe_and_resume_0/runs/20261014/014824/4f54992dcbd2/checkpoints', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+
+stable_pretraining/tests/unit/test_mmcr_training.py::test_manager_probe_and_resume[forward]
+  /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/lightning/pytorch/callbacks/model_checkpoint.py:566: The dirpath has changed from '/tmp/pytest-of-runner/pytest-1/test_manager_probe_and_resume_1/runs/20261014/014825/b28a41ff3ed7/checkpoints' to '/tmp/pytest-of-runner/pytest-1/test_manager_probe_and_resume_1/runs/20261014/014825/43a39874da15/checkpoints', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [3] stable_pretraining/tests/unit/test_mmcr.py:261: GPU not usable (unavailable or busy)
+55 passed, 3 skipped, 11 warnings in 8.05s

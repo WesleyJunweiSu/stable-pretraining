@@ -1,0 +1,15 @@
+{
+  "experiment_summary": "runs/simclr/runs/20261014/024201/2aafc822125a/experiment-summary.json",
+  "raw_metrics": "runs/simclr/runs/20261014/024201/2aafc822125a/metrics.csv",
+  "completed_epochs": 20,
+  "completed_steps": 3120,
+  "first_epoch_online_top1": 0.23819999396800995,
+  "final_epoch_online_top1": 0.5374000072479248,
+  "online_gain_percentage_points": 29.920001327991486,
+  "mean_first_five_online_top1": 0.3145599991083145,
+  "mean_last_five_online_top1": 0.5306800007820129,
+  "seconds": 10080.87055257,
+  "evaluation": "online probe on held-out training split; not frozen linear evaluation",
+  "fake_data": false,
+  "selection": "Report the final planned epoch and all epoch measurements, not the best validation checkpoint."
+}

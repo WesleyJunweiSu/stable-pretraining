@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.17, pytest-9.1.1, pluggy-1.6.0 -- /opt/hostedtoolcache/Python/3.11.17/x64/bin/python
+rootdir: /home/runner/work/stable-pretraining/stable-pretraining
+configfile: pytest.ini
+plugins: hydra-core-1.3.7, split-0.11.0, platformdirs-4.13.0, cov-7.1.0, anyio-4.15.1
+collecting ... [32m01:47:07[0m | [1mINFO [0m | [36m__init__.py [0m| [1mFailed to extract font properties from /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf: Non-scalable fonts are not supported[0m
+[32m01:47:07[0m | [1mINFO [0m | [36m__init__.py [0m| [1mgenerated new fontManager[0m
+collected 1 item
+
+stable_pretraining/tests/distributed/test_mmcr.py::test_global_loss_and_ddp_parameter_gradients [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+PASSED
+
+- generated xml file: /home/runner/work/stable-pretraining/stable-pretraining/out/ddp/ddp-results.xml -
+============================== 1 passed in 18.97s ==============================

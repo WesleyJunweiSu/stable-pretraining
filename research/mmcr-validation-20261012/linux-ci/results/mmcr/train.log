@@ -1,0 +1,699 @@
+Seed set to 7
+[32m02:41:55[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] installed crash-safe checkpoint plugin (write to sibling .tmp + fsync + atomic rename)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── Module ────────────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  Saving provided hyperparameters.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  Setting custom forward method.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  Setting attribute: self.backbone = <class 'torchvision.models.resnet.ResNet'>[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  Setting attribute: self.projector = <class 'torch.nn.modules.container.Sequential'>[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  Setting attribute: self.mmcr_loss = <class 'stable_pretraining.losses.mmcr.MMCRLoss'>[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  Setting attribute: self.optim = <class 'dict'>[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  No metrics configuration provided - automatic metric tracking is disabled.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m  wrapping configure_model[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m  wrapping configure_optimizers[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── OnlineProbe ───────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mprobe.py    [0m| [1m  name: probe[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mprobe.py    [0m| [1m  input: embedding[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mprobe.py    [0m| [1m  target: label[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mprobe.py    [0m| [1m  accumulate_grad_batches: 1[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mprobe.py    [0m| [1m  wrapping forward[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── HuggingFaceCheckpoint ─────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mhf_models.py[0m| [1m  save_dir: <cyan>hf_exports</cyan>[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mhf_models.py[0m| [1m  per_step: <cyan>False</cyan>  (False ⇒ overwrite single 'last/' subdir; True ⇒ keep step_N/)[0m
+Adding 10 callbacks from entry point 'stablepretraining_callbacks': PrintProgressBar, ModuleRegistryCallback, LoggingCallback, SklearnCheckpoint, WandbCheckpoint, TrackioCheckpoint, SwanLabCheckpoint, LogUnusedParametersOnce, HuggingFaceCheckpointCallback, HardwareMonitor
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1mSetting up DataModule[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── SIGTERM preempt handler — install ─────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SLURM_JOB_ID         = None[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SLURM_RESTART_COUNT  = '0'[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SLURM_PROCID         = '?'[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SLURM_NODEID         = '?'[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  → not under SLURM (SLURM_JOB_ID unset); leaving SIGTERM handler as-is. Forwarding to submitit's USR signal would be a no-op since submitit isn't running upstream.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  Manager init: ckpt_path=None, weights_only=False[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── WorkingDirectory ──────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  cwd: /home/runner/work/stable-pretraining/stable-pretraining[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── Seed ──────────────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  seed: 7[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mdistributed~[0m| [1mSeed set to 7[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── RunDirectory ──────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  cache_dir = /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  ddp: launch_key=(single-process) rank=0 is_rank_zero=True[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── RunDirectory: requeue probe ───────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SLURM session key   = (no SLURM)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SLURM_RESTART_COUNT = 0[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  in_requeue          = False[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── RunDirectory: fresh ───────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  no user ckpt_path — training from scratch / pretrained backbone.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  created run_dir = /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  wrote run_meta.json with run_id=884b5d645f44[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SLURM index = (no SLURM, skipped)[0m
+[32m02:41:55[0m | [33m[1mWARN [0m | [36mmanager.py  [0m| [33m[1m! cache_dir is set but the Trainer was passed as an already-instantiated object. Cannot override default_root_dir cleanly. Consider passing the trainer as a config dict instead.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mlogger.py   [0m| [1m[RegistryLogger] run_id=884b5d645f44 run_dir=/home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44 — sidecar.json + summary.json + metrics.csv will live here[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── RegistryLogger ────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  run_dir: /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  run_id:  884b5d645f44[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── CSVLogger ─────────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  root_dir: /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  save_dir: /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  log_dir: /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── SignalHandlers (after submitit setup (spt SIGTERM installed in __init__)) ──[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGUSR1  → SIG_DFL (default OS action — terminate process)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGUSR2  → SIG_DFL (default OS action — terminate process)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGCONT  → SIG_DFL (default OS action — terminate process)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGTERM  → SIG_DFL (default OS action — terminate process)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── Callbacks ─────────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  count: 13[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── CacheDirCheckpointing ─────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  Saving checkpoints to: /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints[0m
+[32m02:41:55[0m | [33m[1mWARN [0m | [36mmanager.py  [0m| [33m[1m  Redirecting HuggingFaceCheckpointCallback from 'hf_exports' to '/home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/hf_exports' (cache_dir is active — prevents races on a shared cache)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  Requeue checkpoint disabled (spt.set(requeue_checkpoint=False))[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── LoadPath resolution ───────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  in_requeue = False[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  user ckpt_path = None[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  user weights_only = False[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  → no ckpt_path; training from scratch.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── TrainerFit ────────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  ckpt_path:     None[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  weights_only:  None[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── SignalHandlers (before Trainer.fit() (handler installed in __init__)) ──[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGUSR1  → SIG_DFL (default OS action — terminate process)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGUSR2  → SIG_DFL (default OS action — terminate process)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGCONT  → SIG_DFL (default OS action — terminate process)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGTERM  → SIG_DFL (default OS action — terminate process)[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  → entering Trainer.fit(); lightning's _SignalConnector will now register its own handlers. SIGTERM will become _HandlersCompose([_sigterm_notifier_fn, _sigterm_handler_fn, spt._handler]); USR-sig binding from submitit is preserved (lightning skips USR registration when one already exists).[0m
+💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── SklearnCheckpoint ─────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Sklearn Modules:[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m
+┏━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┓
+┃ Module   ┃ Name   ┃ Type   ┃
+┣━━━━━━━━━━╋━━━━━━━━╋━━━━━━━━┫
+┗━━━━━━━━━━┻━━━━━━━━┻━━━━━━━━┛[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── WandbCheckpoint ───────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── TrackioCheckpoint ─────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── SwanLabCheckpoint ─────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── HardwareMonitor ───────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mhardware_mo~[0m| [1m  interval: 10.0s[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mhardware_mo~[0m| [1m  prefix:   'hardware/'[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mhardware_mo~[0m| [1m  metrics:  cpu=True ram=True disk=True net=True gpu=True[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mhardware_mo~[0m| [1m  per-rank: rank 0 only[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m  storing module in callbacks_modules[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m  setting up metrics[0m
+[32m02:41:55[0m | [33m[1mWARN [0m | [36mhardware_mo~[0m| [33m[1mHardwareMonitor: pynvml unavailable (ModuleNotFoundError("No module named 'pynvml'")); GPU metrics disabled.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── Optimizers ────────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  Configuring single optimizer.[0m
+Loading `train_dataloader` to estimate number of stepping batches.
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+[32m02:41:55[0m | [1mINFO [0m | [36mlr_schedule~[0m| [1m	User provided a dict[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  Configured AdamW optimizer with CosineAnnealingLR scheduler.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m  using explicitly provided optimizer[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m  no scheduler given, using default ConstantLR[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mlogger.py   [0m| [1m[RegistryLogger] summary.json flushed (0 metrics, step=0, epoch=0) → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/summary.json[0m
+[32m02:41:55[0m | [33m[1mWARN [0m | [36mmodule.py   [0m| [33m[1m! You are calling self.parameters which also gives callbacks parameters, to remove them, pass `with_callbacks=False`[0m
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+[32m02:41:55[0m | [33m[1mWARN [0m | [36mhf_models.py[0m| [33m[1m! No Hugging Face (PreTrainedModel) submodules found in LightningModule.[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── Optimizers ────────────────────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36mmodule.py   [0m| [1m  self.optimizers() gave us 2 optimizers[0m
+[32m02:41:55[0m | [33m[1mWARN [0m | [36mmodule.py   [0m| [33m[1m! No clip val found for optimizer default_0[0m
+[32m02:41:55[0m | [33m[1mWARN [0m | [36mmodule.py   [0m| [33m[1m! Will use the Trainer's value of None[0m
+[32m02:41:55[0m | [33m[1mWARN [0m | [36mmodule.py   [0m| [33m[1m! No clip algorithm found for optimizer default_0[0m
+[32m02:41:55[0m | [33m[1mWARN [0m | [36mmodule.py   [0m| [33m[1m! Will use the Trainer's value of None[0m
+[32m02:41:55[0m | [32m[1mOK   [0m | [36mmodule.py   [0m| [32m[1m✓ Optimizer check complete:
++------------+-----------+----------------+-----------+-----------+
+| Opt. Index | Opt. name |      opt       | clip val. | clip alg. |
++------------+-----------+----------------+-----------+-----------+
+|     0      | default_0 | LightningAdamW |    None   |    None   |
+|     1      |   probe   | LightningAdamW |    None   |    norm   |
++------------+-----------+----------------+-----------+-----------+[0m
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:378: You have overridden `on_after_batch_transfer` in `LightningModule` but have passed in a `LightningDataModule`. It will use the implementation from `LightningModule` instance.
+[32m02:41:55[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── LogUnusedParametersOnce ───────────────────────[0m
+[32m02:41:55[0m | [1mINFO [0m | [36munused_para~[0m| [1m  registered hooks on 66 leaf parameters[0m
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 64. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+[32m02:41:58[0m | [32m[1mOK   [0m | [36munused_para~[0m| [32m[1m✓ all tracked parameters received gradients on the first backward pass[0m
+[32m02:41:58[0m | [1mINFO [0m | [36munused_para~[0m| [1m  hooks removed, callback disabled[0m
+[Epoch 0/20] step 50/156 (0.3 it/s)
+[Epoch 0/20] step 100/156 (0.3 it/s)
+[Epoch 0/20] step 150/156 (0.3 it/s)
+[32m02:50:01[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |  [0;32;40m0.30059999227523804[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |  [0;32;40m0.30059999227523804[0m  |
+|          [0;34;40mfit/loss[0m         |  [0;32;40m-46.421260833740234[0m  |
+|       [0;34;40mfit/loss_step[0m       |  [0;32;40m-46.421260833740234[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m97.69999694824219[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.037883076816797256[0m |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0008459312957711518[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  |  [0;32;40m0.00157305842731148[0m  |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4108543395996094[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m15.399999618530273[0m  |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0009938441216945648[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m2.0656723976135254[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m2.0656723976135254[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 0/20] done in 485.8s
+[32m02:50:01[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m02:50:01[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=0-step=156.ckpt[0m
+[32m02:50:01[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=0-step=156.ckpt saved (131.8 MiB, serialise=0.08s write=0.08s rename=0.1ms)[0m
+[Epoch 1/20] step 50/156 (0.3 it/s)
+[Epoch 1/20] step 100/156 (0.3 it/s)
+[Epoch 1/20] step 150/156 (0.3 it/s)
+[32m02:58:05[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.3474000096321106[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.3474000096321106[0m  |
+|          [0;34;40mfit/loss[0m         |  [0;32;40m-49.309349060058594[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-44.54700469970703[0m  |
+|       [0;34;40mfit/loss_step[0m       |  [0;32;40m-49.309349060058594[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m97.80000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.03866804763674736[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0014578331029042602[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  |  [0;32;40m0.00211122608743608[0m  |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4020538330078125[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m15.399999618530273[0m  |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0009755282662808895[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.743791937828064[0m   |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m2.208496332168579[0m   |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.743791937828064[0m   |
++---------------------------+-----------------------+[0m
+[Epoch 1/20] done in 483.5s
+[32m02:58:05[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m02:58:05[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=1-step=312.ckpt[0m
+[32m02:58:05[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=1-step=312.ckpt saved (131.8 MiB, serialise=0.08s write=0.06s rename=0.1ms)[0m
+[Epoch 2/20] step 50/156 (0.3 it/s)
+[Epoch 2/20] step 100/156 (0.3 it/s)
+[Epoch 2/20] step 150/156 (0.3 it/s)
+[32m03:06:06[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.3984000086784363[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.3984000086784363[0m  |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-50.43798065185547[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |  [0;32;40m-47.802303314208984[0m  |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-50.43798065185547[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.30000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.03202800452709198[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  |  [0;32;40m0.001480333972722292[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  |  [0;32;40m0.002123808255419135[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.5161056518554688[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m16.100000381469727[0m  |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0009455032413825393[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.7497434616088867[0m  |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.9221524000167847[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.7497434616088867[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 2/20] done in 481.0s
+[32m03:06:06[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m03:06:06[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=2-step=468.ckpt[0m
+[32m03:06:06[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=2-step=468.ckpt saved (131.8 MiB, serialise=0.08s write=0.06s rename=0.1ms)[0m
+[Epoch 3/20] step 50/156 (0.3 it/s)
+[Epoch 3/20] step 100/156 (0.3 it/s)
+[Epoch 3/20] step 150/156 (0.3 it/s)
+[32m03:14:07[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |  [0;32;40m0.42100000381469727[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |  [0;32;40m0.42100000381469727[0m  |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-50.62661361694336[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-49.33812713623047[0m  |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-50.62661361694336[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m97.80000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.03436467424035072[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0014687892980873585[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0021233854349702597[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |    [0;32;40m2.42669677734375[0m   |
+|   [0;34;40mhardware/ram_used_pct[0m   |          [0;32;40m15.5[0m         |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0009045085171237588[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.874295711517334[0m   |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.8176745176315308[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.874295711517334[0m   |
++---------------------------+-----------------------+[0m
+[Epoch 3/20] done in 480.9s
+[32m03:14:07[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m03:14:07[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=3-step=624.ckpt[0m
+[32m03:14:07[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=3-step=624.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 4/20] step 50/156 (0.3 it/s)
+[Epoch 4/20] step 100/156 (0.3 it/s)
+[Epoch 4/20] step 150/156 (0.3 it/s)
+[32m03:22:08[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |  [0;32;40m0.43560001254081726[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |  [0;32;40m0.43560001254081726[0m  |
+|          [0;34;40mfit/loss[0m         |  [0;32;40m-51.974876403808594[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |  [0;32;40m-50.236995697021484[0m  |
+|       [0;34;40mfit/loss_step[0m       |  [0;32;40m-51.974876403808594[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m97.80000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.03359048441052437[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0006913466495461762[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0009875291725620627[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.3790016174316406[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m15.199999809265137[0m  |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0008535534143447876[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.464191198348999[0m   |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.7577219009399414[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.464191198348999[0m   |
++---------------------------+-----------------------+[0m
+[Epoch 4/20] done in 480.5s
+[32m03:22:08[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m03:22:08[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=4-step=780.ckpt[0m
+[32m03:22:08[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=4-step=780.ckpt saved (131.8 MiB, serialise=0.08s write=0.07s rename=0.1ms)[0m
+[Epoch 5/20] step 50/156 (0.3 it/s)
+[Epoch 5/20] step 100/156 (0.3 it/s)
+[Epoch 5/20] step 150/156 (0.3 it/s)
+[32m03:30:09[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.4603999853134155[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.4603999853134155[0m  |
+|          [0;34;40mfit/loss[0m         |  [0;32;40m-51.780147552490234[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |  [0;32;40m-51.029876708984375[0m  |
+|       [0;34;40mfit/loss_step[0m       |  [0;32;40m-51.780147552490234[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.30000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.026559719815850258[0m |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0007708696066401899[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0014370367862284184[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4935684204101562[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |          [0;32;40m16.0[0m         |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0007938925991766155[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.5840436220169067[0m  |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.6989939212799072[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.5840436220169067[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 5/20] done in 480.9s
+[32m03:30:09[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m03:30:09[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=5-step=936.ckpt[0m
+[32m03:30:09[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=5-step=936.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 6/20] step 50/156 (0.3 it/s)
+[Epoch 6/20] step 100/156 (0.3 it/s)
+[Epoch 6/20] step 150/156 (0.3 it/s)
+[32m03:38:09[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.4787999987602234[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.4787999987602234[0m  |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-51.4913444519043[0m   |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-51.51800537109375[0m  |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-51.4913444519043[0m   |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.19999694824219[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.027731839567422867[0m |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0013939536875113845[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0020010073203593493[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4953269958496094[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |          [0;32;40m16.0[0m         |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0007269952329806983[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.7509249448776245[0m  |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.629852294921875[0m   |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.7509249448776245[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 6/20] done in 480.6s
+[32m03:38:09[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m03:38:09[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=6-step=1092.ckpt[0m
+[32m03:38:10[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=6-step=1092.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 7/20] step 50/156 (0.3 it/s)
+[Epoch 7/20] step 100/156 (0.3 it/s)
+[Epoch 7/20] step 150/156 (0.3 it/s)
+[32m03:46:12[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |  [0;32;40m0.46799999475479126[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |  [0;32;40m0.46799999475479126[0m  |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-52.90394973754883[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |  [0;32;40m-52.000633239746094[0m  |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-52.90394973754883[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m97.80000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.11522294580936432[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0022647518198937178[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  |  [0;32;40m0.001965709263458848[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.415599822998047[0m   |
+|   [0;34;40mhardware/ram_used_pct[0m   |          [0;32;40m15.5[0m         |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0006545084761455655[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.408761739730835[0m   |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.5995784997940063[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.408761739730835[0m   |
++---------------------------+-----------------------+[0m
+[Epoch 7/20] done in 482.2s
+[32m03:46:12[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m03:46:12[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=7-step=1248.ckpt[0m
+[32m03:46:12[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=7-step=1248.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 8/20] step 50/156 (0.3 it/s)
+[Epoch 8/20] step 100/156 (0.3 it/s)
+[Epoch 8/20] step 150/156 (0.3 it/s)
+[32m03:54:13[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.4925999939441681[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.4925999939441681[0m  |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-53.31231689453125[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-52.38486862182617[0m  |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-53.31231689453125[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.30000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.03398064151406288[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  |  [0;32;40m0.001491573522798717[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  |  [0;32;40m0.002154304413124919[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.5083160400390625[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m16.100000381469727[0m  |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0005782172083854675[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.5400421619415283[0m  |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.5482934713363647[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.5400421619415283[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 8/20] done in 481.1s
+[32m03:54:13[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m03:54:13[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=8-step=1404.ckpt[0m
+[32m03:54:13[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=8-step=1404.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 9/20] step 50/156 (0.3 it/s)
+[Epoch 9/20] step 100/156 (0.3 it/s)
+[Epoch 9/20] step 150/156 (0.3 it/s)
+[32m04:02:15[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |  [0;32;40m0.48980000615119934[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |  [0;32;40m0.48980000615119934[0m  |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-53.63788604736328[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-52.67695999145508[0m  |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-53.63788604736328[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.30000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.026559799909591675[0m |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0015549033414572477[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0022092480212450027[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.449237823486328[0m   |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m15.699999809265137[0m  |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0005000000237487257[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.6018911600112915[0m  |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |    [0;32;40m1.50249445438385[0m   |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.6018911600112915[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 9/20] done in 481.3s
+[32m04:02:15[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m04:02:15[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=9-step=1560.ckpt[0m
+[32m04:02:15[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=9-step=1560.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 10/20] step 50/156 (0.3 it/s)
+[Epoch 10/20] step 100/156 (0.3 it/s)
+[Epoch 10/20] step 150/156 (0.3 it/s)
+[32m04:10:16[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+------------------------+
+|           Metric          |         Value          |
++---------------------------+------------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.545799970626831[0m    |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.545799970626831[0m    |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-53.14710998535156[0m   |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-52.97156524658203[0m   |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-53.14710998535156[0m   |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.30000305175781[0m    |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m           |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.22573600709438324[0m   |
+|   [0;34;40mhardware/net_recv_mb_s[0m  |  [0;32;40m0.004733662586659193[0m  |
+|   [0;34;40mhardware/net_sent_mb_s[0m  |  [0;32;40m0.005897865630686283[0m  |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4942855834960938[0m   |
+|   [0;34;40mhardware/ram_used_pct[0m   |          [0;32;40m16.0[0m          |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.00042178278090432286[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m  |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.5357776880264282[0m   |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.477861762046814[0m    |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.5357776880264282[0m   |
++---------------------------+------------------------+[0m
+[Epoch 10/20] done in 481.2s
+[32m04:10:16[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m04:10:16[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=10-step=1716.ckpt[0m
+[32m04:10:16[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=10-step=1716.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 11/20] step 50/156 (0.3 it/s)
+[Epoch 11/20] step 100/156 (0.3 it/s)
+[Epoch 11/20] step 150/156 (0.3 it/s)
+[32m04:18:17[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.5401999950408936[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.5401999950408936[0m  |
+|          [0;34;40mfit/loss[0m         |  [0;32;40m-54.450775146484375[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |  [0;32;40m-53.302696228027344[0m  |
+|       [0;34;40mfit/loss_step[0m       |  [0;32;40m-54.450775146484375[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.30000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.16560985147953033[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0008021574467420578[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0011185576440766454[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4718475341796875[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m15.800000190734863[0m  |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0003454915131442249[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.338595986366272[0m   |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.4293571710586548[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.338595986366272[0m   |
++---------------------------+-----------------------+[0m
+[Epoch 11/20] done in 481.1s
+[32m04:18:17[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m04:18:17[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=11-step=1872.ckpt[0m
+[32m04:18:17[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=11-step=1872.ckpt saved (131.8 MiB, serialise=0.08s write=0.06s rename=0.1ms)[0m
+[Epoch 12/20] step 50/156 (0.3 it/s)
+[Epoch 12/20] step 100/156 (0.3 it/s)
+[Epoch 12/20] step 150/156 (0.3 it/s)
+[32m04:26:18[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+------------------------+
+|           Metric          |         Value          |
++---------------------------+------------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.5568000078201294[0m   |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.5568000078201294[0m   |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-53.81540298461914[0m   |
+|       [0;34;40mfit/loss_epoch[0m      |  [0;32;40m-53.585411071777344[0m   |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-53.81540298461914[0m   |
+|    [0;34;40mhardware/cpu_percent[0m   |    [0;32;40m97.5999984741211[0m    |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m           |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.03553624823689461[0m   |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0008652960532344878[0m  |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0011699992464855313[0m  |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.3815536499023438[0m   |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m15.300000190734863[0m   |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.00027300475630909204[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m  |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.353624701499939[0m    |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.4048911333084106[0m   |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.353624701499939[0m    |
++---------------------------+------------------------+[0m
+[Epoch 12/20] done in 481.0s
+[32m04:26:18[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m04:26:18[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=12-step=2028.ckpt[0m
+[32m04:26:18[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=12-step=2028.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 13/20] step 50/156 (0.3 it/s)
+[Epoch 13/20] step 100/156 (0.3 it/s)
+[Epoch 13/20] step 150/156 (0.3 it/s)
+[32m04:34:19[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.569599986076355[0m   |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.569599986076355[0m   |
+|          [0;34;40mfit/loss[0m         |  [0;32;40m-53.493045806884766[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |  [0;32;40m-53.891231536865234[0m  |
+|       [0;34;40mfit/loss_step[0m       |  [0;32;40m-53.493045806884766[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.30000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.029681533575057983[0m |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0029976540245115757[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0029036407358944416[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.455799102783203[0m   |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m15.699999809265137[0m  |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.0002061073755612597[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.3096040487289429[0m  |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.3725581169128418[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.3096040487289429[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 13/20] done in 481.0s
+[32m04:34:19[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m04:34:19[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=13-step=2184.ckpt[0m
+[32m04:34:20[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=13-step=2184.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 14/20] step 50/156 (0.3 it/s)
+[Epoch 14/20] step 100/156 (0.3 it/s)
+[Epoch 14/20] step 150/156 (0.3 it/s)
+[32m04:42:21[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+------------------------+
+|           Metric          |         Value          |
++---------------------------+------------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.5788000226020813[0m   |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.5788000226020813[0m   |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-54.38771438598633[0m   |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-54.10845947265625[0m   |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-54.38771438598633[0m   |
+|    [0;34;40mhardware/cpu_percent[0m   |    [0;32;40m98.4000015258789[0m    |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m           |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.026950499042868614[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0007889932603575289[0m  |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0011488748714327812[0m  |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4827804565429688[0m   |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m15.899999618530273[0m   |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m0.00014644660404883325[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m  |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.2834362983703613[0m   |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.351364254951477[0m    |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.2834362983703613[0m   |
++---------------------------+------------------------+[0m
+[Epoch 14/20] done in 481.3s
+[32m04:42:21[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m04:42:21[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=14-step=2340.ckpt[0m
+[32m04:42:21[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=14-step=2340.ckpt saved (131.8 MiB, serialise=0.08s write=0.08s rename=0.1ms)[0m
+[Epoch 15/20] step 50/156 (0.3 it/s)
+[Epoch 15/20] step 100/156 (0.3 it/s)
+[Epoch 15/20] step 150/156 (0.3 it/s)
+[32m04:50:23[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.5925999879837036[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.5925999879837036[0m  |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-54.70356750488281[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |  [0;32;40m-54.333866119384766[0m  |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-54.70356750488281[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m97.80000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.03905435651540756[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0007664036238566041[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0011235756101086736[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4165382385253906[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |          [0;32;40m15.5[0m         |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m9.549150126986206e-05[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.394559621810913[0m   |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.3219040632247925[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.394559621810913[0m   |
++---------------------------+-----------------------+[0m
+[Epoch 15/20] done in 482.0s
+[32m04:50:23[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m04:50:23[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=15-step=2496.ckpt[0m
+[32m04:50:23[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=15-step=2496.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 16/20] step 50/156 (0.3 it/s)
+[Epoch 16/20] step 100/156 (0.3 it/s)
+[Epoch 16/20] step 150/156 (0.3 it/s)
+[32m04:58:25[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.5907999873161316[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.5907999873161316[0m  |
+|          [0;34;40mfit/loss[0m         |  [0;32;40m-55.241851806640625[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-54.40861511230469[0m  |
+|       [0;34;40mfit/loss_step[0m       |  [0;32;40m-55.241851806640625[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m97.80000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.04686572775244713[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0014801912475377321[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0021361892577260733[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4171409606933594[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |          [0;32;40m15.5[0m         |
+|    [0;34;40mhparams/lr_default_0[0m   |  [0;32;40m5.44967369933147e-05[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.2684825658798218[0m  |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.297600269317627[0m   |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.2684825658798218[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 16/20] done in 482.2s
+[32m04:58:25[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m04:58:25[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=16-step=2652.ckpt[0m
+[32m04:58:26[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=16-step=2652.ckpt saved (131.8 MiB, serialise=0.08s write=0.07s rename=0.1ms)[0m
+[Epoch 17/20] step 50/156 (0.3 it/s)
+[Epoch 17/20] step 100/156 (0.3 it/s)
+[Epoch 17/20] step 150/156 (0.3 it/s)
+[32m05:06:28[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+------------------------+
+|           Metric          |         Value          |
++---------------------------+------------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.5953999757766724[0m   |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.5953999757766724[0m   |
+|          [0;34;40mfit/loss[0m         |   [0;32;40m-54.44547653198242[0m   |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-54.54134750366211[0m   |
+|       [0;34;40mfit/loss_step[0m       |   [0;32;40m-54.44547653198242[0m   |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.30000305175781[0m    |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m           |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.028512682765722275[0m  |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0015489886282011867[0m  |
+|   [0;34;40mhardware/net_sent_mb_s[0m  | [0;32;40m0.0025733199436217546[0m  |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.542755126953125[0m    |
+|   [0;34;40mhardware/ram_used_pct[0m   |   [0;32;40m16.299999237060547[0m   |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m2.4471741198794916e-05[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m  |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.5748555660247803[0m   |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.2968021631240845[0m   |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.5748555660247803[0m   |
++---------------------------+------------------------+[0m
+[Epoch 17/20] done in 482.0s
+[32m05:06:28[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m05:06:28[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=17-step=2808.ckpt[0m
+[32m05:06:28[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=17-step=2808.ckpt saved (131.8 MiB, serialise=0.08s write=0.08s rename=0.1ms)[0m
+[Epoch 18/20] step 50/156 (0.3 it/s)
+[Epoch 18/20] step 100/156 (0.3 it/s)
+[Epoch 18/20] step 150/156 (0.3 it/s)
+[32m05:14:29[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.5849999785423279[0m  |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.5849999785423279[0m  |
+|          [0;34;40mfit/loss[0m         |  [0;32;40m-54.243682861328125[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-54.63296890258789[0m  |
+|       [0;34;40mfit/loss_step[0m       |  [0;32;40m-54.243682861328125[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.30000305175781[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.028509898111224174[0m |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0006912749959155917[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  |  [0;32;40m0.000987426727078855[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4924049377441406[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |          [0;32;40m16.0[0m         |
+|    [0;34;40mhparams/lr_default_0[0m   | [0;32;40m6.155829851195449e-06[0m |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.2314236164093018[0m  |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.2735941410064697[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.2314236164093018[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 18/20] done in 481.7s
+[32m05:14:29[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m05:14:29[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=18-step=2964.ckpt[0m
+[32m05:14:30[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=18-step=2964.ckpt saved (131.8 MiB, serialise=0.08s write=0.05s rename=0.1ms)[0m
+[Epoch 19/20] step 50/156 (0.3 it/s)
+[Epoch 19/20] step 100/156 (0.3 it/s)
+[Epoch 19/20] step 150/156 (0.3 it/s)
+[32m05:22:31[0m | [1mINFO [0m | [36mtrainer_inf~[0m| [1m\n+---------------------------+-----------------------+
+|           Metric          |         Value         |
++---------------------------+-----------------------+
+|    [0;34;40meval/probe_accuracy[0m    |   [0;32;40m0.592199981212616[0m   |
+| [0;34;40meval/probe_accuracy_epoch[0m |   [0;32;40m0.592199981212616[0m   |
+|          [0;34;40mfit/loss[0m         |  [0;32;40m-53.923072814941406[0m  |
+|       [0;34;40mfit/loss_epoch[0m      |   [0;32;40m-54.79474639892578[0m  |
+|       [0;34;40mfit/loss_step[0m       |  [0;32;40m-53.923072814941406[0m  |
+|    [0;34;40mhardware/cpu_percent[0m   |   [0;32;40m98.19999694824219[0m   |
+|  [0;34;40mhardware/disk_read_mb_s[0m  |          [0;32;40m0.0[0m          |
+|  [0;34;40mhardware/disk_write_mb_s[0m |  [0;32;40m0.032028213143348694[0m |
+|   [0;34;40mhardware/net_recv_mb_s[0m  | [0;32;40m0.0015539603773504496[0m |
+|   [0;34;40mhardware/net_sent_mb_s[0m  |  [0;32;40m0.002791140228509903[0m |
+|    [0;34;40mhardware/ram_used_gb[0m   |   [0;32;40m2.4909706115722656[0m  |
+|   [0;34;40mhardware/ram_used_pct[0m   |          [0;32;40m16.0[0m         |
+|    [0;34;40mhparams/lr_default_0[0m   |          [0;32;40m0.0[0m          |
+|      [0;34;40mhparams/lr_probe[0m     | [0;32;40m0.0010000000474974513[0m |
+|      [0;34;40mtrain/probe_loss[0m     |   [0;32;40m1.2718696594238281[0m  |
+|   [0;34;40mtrain/probe_loss_epoch[0m  |   [0;32;40m1.2711539268493652[0m  |
+|   [0;34;40mtrain/probe_loss_step[0m   |   [0;32;40m1.2718696594238281[0m  |
++---------------------------+-----------------------+[0m
+[Epoch 19/20] done in 481.3s
+[32m05:22:31[0m | [1mINFO [0m | [36mcheckpoint_~[0m| [1m  Checking for non PyTorch modules to save[0m
+[32m05:22:31[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] → /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/checkpoints/epoch=19-step=3120.ckpt[0m
+[32m05:22:31[0m | [1mINFO [0m | [36matomic_chec~[0m| [1m[atomic_save] ✓ epoch=19-step=3120.ckpt saved (131.8 MiB, serialise=0.08s write=0.08s rename=0.1ms)[0m
+`Trainer.fit` stopped: `max_epochs=20` reached.
+[32m05:22:31[0m | [1mINFO [0m | [36mutils.py    [0m| [1m── SignalHandlers (after Trainer.fit() returned) ──[0m
+[32m05:22:31[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGUSR1  → SIG_DFL (default OS action — terminate process)[0m
+[32m05:22:31[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGUSR2  → SIG_DFL (default OS action — terminate process)[0m
+[32m05:22:31[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGCONT  → SIG_DFL (default OS action — terminate process)[0m
+[32m05:22:31[0m | [1mINFO [0m | [36mmanager.py  [0m| [1m  SIGTERM  → SIG_DFL (default OS action — terminate process)[0m
+Experiment summary: /home/runner/work/stable-pretraining/stable-pretraining/runs/mmcr/runs/20261014/024155/884b5d645f44/experiment-summary.json
